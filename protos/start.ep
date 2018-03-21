@@ -1,0 +1,17 @@
+#!/bin/sh
+
+MOJO_MODE=<%= $config->{'mode'} %>
+export MOJO_MODE
+MOJO_REVERSE_PROXY=1
+export MOJO_REVERSE_PROXY
+
+/usr/bin/env perl \\
+  -Mlocal::lib=<%= $approot %>/local \\
+  -I<%= $approot %>/lib \\
+  -I<%= $approot %>/extlib \\
+    local/bin/starman script/app \\
+      --listen :<%= $config->{'port'} %> \\
+      --workers <%= $config->{'workers'} || 2 %> \\
+      --pid bulletin.pid \\
+      -R lib,templates,conf \\
+      >> log/starman.error.log 2>&1 &

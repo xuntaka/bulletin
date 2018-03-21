@@ -1,0 +1,39 @@
+% $config->{https} = {on => $config->{https}} unless ref $config->{https};
+{
+	'mode' => '<%= $config->{'mode'} || 'production' %>',
+	'release_timestamp' => time(),
+	'release_version' => '<%= $config->{release_version} %>',
+	'server' => {
+		'www'    => 'http://<%= $config->{domain} %>',
+		'https'  => '<%= $config->{https}{on} ? 'https' : 'http' %>://<%= $config->{domain} %>',
+		'host'   => '<%= $config->{domain} %>',
+		'domain' => '<%= $config->{domain} %>', # тут лучше использовать host, вроде нигде не используется, но пока пусть висит
+		'port'   => '<%= $config->{port  } %>',
+		'signup_url' => '<%= ($config->{signup_url} || '') =~ s{/$}{}r %>', # schema://domain для логина и регистрации
+		'sites_select' => '<%= $config->{sites_select} || (($config->{https}{on} ? 'https' : 'http') . '://dev:devdev@sites-select.' . $config->{domain}) %>',
+	},
+	'https' => {
+		'on'			=> '<%= $config->{https}{on} || '' %>',
+		'force_admin'	=> '<%= defined $config->{https}{force_admin} ? $config->{https}{force_admin} : $config->{https}{on} || '' %>',
+	},
+	'cookie' => {
+		'domain' => '.<%= $config->{domain} %>',
+		'name'   => 'bulletin',
+	},
+	'auth' => {
+		'expires' => 60*60*24*30,
+	},
+	'path'   => {
+		'approot' => '<%= $approot %>',
+		'conf'    => '<%= $approot %>/conf',
+		'data'    => '<%= $approot %>/data',
+		'fonts'   => '<%= $approot %>/fonts',
+		'fop'     => '<%= $config->{'fop'} || 'fop' %>',
+		'tmpl'    => 'tmpl',
+	},
+	'pdf' => {
+		'font'           => 'PT Serif,serif',
+		'mono_font'      => 'PT Mono,monospace',
+		'default_styles' => 'line-height="125%"',
+	},
+};

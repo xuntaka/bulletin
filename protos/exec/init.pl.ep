@@ -1,0 +1,27 @@
+#!/usr/bin/env perl
+use v5.18;
+use utf8;
+use warnings;
+
+use local::lib '<%= $approot %>/local';
+use lib "<%= $approot %>/lib",
+        "<%= $approot %>/extlib";
+
+BEGIN {
+  $ENV{'MOJO_APP'          } = 'App';
+  $ENV{'MOJO_NO_IPV6'      } = 1;
+  $ENV{'MOJO_REVERSE_PROXY'} = 1;
+  % if ($config->{'dbic_log_on'} || $config->{'mode'} && $config->{'mode'} eq 'development') {
+  $ENV{'DBIC_TRACE'        } ||= '1=<%= $approot %>/log/dbic.log';
+  % }
+}
+
+use Mojo::Loader qw[load_class];
+use Mojolicious 6.55;
+
+if (my $e = load_class('App')) { die $e if ref $e }
+
+sub app { $::app //= App->new(is_cli => 1) }
+app();
+
+1;

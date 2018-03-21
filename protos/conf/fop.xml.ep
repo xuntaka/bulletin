@@ -1,0 +1,15 @@
+%# Нужно установить подержку переносов слов http://xmlgraphics.apache.org/fop/1.1/hyphenation.html
+%# с http://offo.sourceforge.net/hyphenation/binary/installation.html
+<fop version="1.0">
+<renderers>
+	<renderer mime="application/pdf">
+		<fonts>
+			<directory><%= $approot %>/fonts</directory>
+
+			<!-- automatically detect operating system installed fonts -->
+			<auto-detect/>
+		</fonts>
+	</renderer>
+</renderers>
+</fop>
+%# vim: set syn=xml.ep:

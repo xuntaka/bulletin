@@ -1,0 +1,16 @@
+~*
+*.pid
+
+/conf/.*
+/conf/*.conf
+/conf/*.conf.bk
+/conf/*.kwm
+/conf/*.xml
+/exec/init.pl
+/exec/test.*
+/local/
+/log/
+/script/
+/start*
+/stop*
+/tmp/

@@ -1,0 +1,24 @@
+#!/usr/bin/env perl
+use v5.18;
+use utf8;
+use warnings;
+
+use local::lib '<%= $approot %>/local';
+use lib "<%= $approot %>/lib",
+        "<%= $approot %>/extlib";
+
+BEGIN {
+  $ENV{'MOJO_NO_IPV6'      } = 1;
+  $ENV{'MOJO_REVERSE_PROXY'} = 1;
+  % if ($config->{'dbic_log_on'} || $config->{'mode'} && $config->{'mode'} eq 'development') {
+  $ENV{'DBIC_TRACE'        } = '1=<%= $approot %>/log/dbic.log';
+  % }
+}
+
+use Mojolicious 6.55;
+use Mojolicious::Commands;
+
+my $mode = shift || 'psgi';
+
+# Start commands for application
+Mojolicious::Commands->start_app('App', $mode, @ARGV);

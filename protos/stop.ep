@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ -e bulletin.pid ]; then \\
+	kill -s TERM `cat bulletin.pid`; \\
+fi

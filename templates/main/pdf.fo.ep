@@ -1,0 +1,163 @@
+% layout undef;
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" font-family="<%= config->{pdf}{font} %>" country="ru" language="ru" <%== config->{pdf}{default_styles} %> font-size="8pt">
+  <fo:layout-master-set>
+    <fo:simple-page-master master-name="A4" page-width="210mm" page-height="297mm" margin-top="1cm" margin-bottom="1cm" margin-left="2cm" margin-right="1cm">
+      <fo:region-body/>
+    </fo:simple-page-master>
+  </fo:layout-master-set>
+
+  <fo:page-sequence master-reference="A4" font-size="8pt">
+    <fo:flow flow-name="xsl-region-body">
+      <fo:block-container text-align="right">
+        <fo:block>Приложение № 1 к постановлению Правительства Российской Федерации от 26 декабря 2011 г. № 1137</fo:block>
+      </fo:block-container>
+
+      <fo:block-container font-size="150%" font-weight="bold">
+        <fo:block>Счет-фактура № ****** от ****** ****** ****** г.</fo:block>
+        <fo:block>Исправление № -- от --</fo:block>
+      </fo:block-container>
+      <fo:block-container space-before="10pt">
+        <fo:block>Продавец: ООО "******"</fo:block>
+        <fo:block>Адрес: ******</fo:block>
+        <fo:block>ИНН/КПП продавца: ***/***</fo:block>
+        <fo:block>Грузоотправитель и его адрес: --</fo:block>
+        <fo:block>Грузополучатель и его адрес: -- </fo:block>
+        <fo:block>К платежно-расчетному документу №****** от ******г.</fo:block>
+        <fo:block>Покупатель: ******</fo:block>
+        <fo:block>Адрес: ******</fo:block>
+        <fo:block>ИНН/КПП покупателя: ******/******</fo:block>
+        <fo:block>Валюта: наименование, код Российский рубль, 643</fo:block>
+      </fo:block-container>
+      
+      <fo:table text-align="center" space-before="10pt" table-layout="fixed" width="100%">
+        <fo:table-column column-width="20%"/>
+
+        <fo:table-column column-width="4%"/>
+        <fo:table-column column-width="7%"/>
+        <fo:table-column column-width="6%"/>
+        <fo:table-column column-width="6%"/>
+        <fo:table-column column-width="8%"/>
+        <fo:table-column column-width="5%"/>
+        <fo:table-column column-width="7%"/>
+        <fo:table-column column-width="******%"/>
+        <fo:table-column column-width="******%"/>
+        <fo:table-column column-width="5%"/>
+        <fo:table-column column-width="6%"/>
+        <fo:table-column column-width="10%"/>
+        <fo:table-body width="100%" table-layout="fixed">
+          <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Наименование товара (описание выполненных работ, оказанных услуг), имущественного права</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-columns-spanned="2">
+              <fo:block>Единица измерения</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Количество (объем)</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Цена (тариф) за единицу измерения</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Стоимость товаров (работ, услуг), имущественных прав без налога - всего</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>В том числе сумма акциза</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Налоговая ставка</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Сумма налога, предъявляемая покупателю</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Стоимость товаров (работ, услуг), имущественных прав с налогом - всего</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-columns-spanned="2">
+              <fo:block>Страна происхождения товара</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
+              <fo:block>Номер таможенной декларации</fo:block>
+            </fo:table-cell>
+          </fo:table-row>
+          <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>код</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>условное обозначение (национальное)</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>цифровой код</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>краткое наимено- вание</fo:block>
+            </fo:table-cell>
+          </fo:table-row>
+          <fo:table-row>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>1</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>2</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>2а</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>3</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>4</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>5</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>6</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>7</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>8</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>9</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>10</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>10а</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>11</fo:block>
+            </fo:table-cell>
+          </fo:table-row>
+
+          <fo:table-row>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-columns-spanned="******" font-weight="bold" text-align="left">
+              <fo:block>Всего к оплате</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>******</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank" number-columns-spanned="2">
+              <fo:block>Х</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>******</fo:block>
+            </fo:table-cell>
+            <fo:table-cell padding="2pt" border="thin solid blank">
+              <fo:block>******</fo:block>
+            </fo:table-cell>
+          </fo:table-row>
+        </fo:table-body>
+      </fo:table>
+      
+    </fo:flow>
+  </fo:page-sequence>
+
+</fo:root>
