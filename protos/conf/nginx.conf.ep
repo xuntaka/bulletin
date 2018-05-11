@@ -71,7 +71,7 @@ server {
 	location / {
 		<%= $config->{no_auth} ? '#' : '' %>auth_basic "Lasciate ogni speranza, voi ch'entrate"; auth_basic_user_file <%= $approot %>/conf/.htpasswd;
 		proxy_pass http://127.0.0.1:<%= $config->{port} || 5000 %>;
-		proxy_read_timeout 300;
+		proxy_read_timeout 1800;
 
 		if ($request_method = 'OPTIONS') {
 		add_header 'Access-Control-Allow-Origin' '*';

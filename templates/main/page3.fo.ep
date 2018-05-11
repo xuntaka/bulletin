@@ -1,0 +1,32 @@
+<fo:page-sequence master-reference="A4" font-size="8pt">
+  <fo:flow flow-name="xsl-region-body">
+
+    <fo:table text-align="left" space-before="10pt" table-layout="fixed" width="100%">
+      <fo:table-column column-width="10%"/>
+      <fo:table-column column-width="30%"/>
+      <fo:table-column column-width="30%"/>
+      <fo:table-column column-width="30%"/>
+
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block padding-top="17pt" text-align="right">Собственник</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block margin-left="7pt">Фамилия</fo:block>
+            <fo:block border="thin solid blank" height="15pt" padding="2pt" margin-left="3pt"> </fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block margin-left="7pt">Имя</fo:block>
+            <fo:block border="thin solid blank" padding="2pt" margin-left="3pt"> </fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block margin-left="7pt">Отчество</fo:block>
+            <fo:block border="thin solid blank" padding="2pt" margin-left="3pt"> </fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+  </fo:flow>
+</fo:page-sequence>

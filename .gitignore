@@ -10,6 +10,7 @@
 /exec/test.*
 /local/
 /log/
+/reestr/
 /script/
 /start*
 /stop*

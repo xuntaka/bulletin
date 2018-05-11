@@ -1,106 +1,17 @@
 % layout undef;
 <?xml version="1.0" encoding="UTF-8"?>
-<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" font-family="<%= config->{pdf}{font} %>" country="ru" language="ru" <%== config->{pdf}{default_styles} %> font-size="8pt">
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" font-family="PFDinTextCompPro" country="ru" language="ru" <%== config->{pdf}{default_styles} %> font-size="10pt">
   <fo:layout-master-set>
-    <fo:simple-page-master master-name="A4" page-width="210mm" page-height="297mm" margin-top="1cm" margin-bottom="1cm" margin-left="2cm" margin-right="1cm">
+    <fo:simple-page-master master-name="A4" page-width="210mm" page-height="297mm" margin-top="15mm" margin-bottom="15mm" margin-left="10mm" margin-right="10mm">
       <fo:region-body/>
     </fo:simple-page-master>
   </fo:layout-master-set>
 
-  <fo:page-sequence master-reference="A4" font-size="8pt">
-    <fo:flow flow-name="xsl-region-body">
-      <fo:block-container text-align="center" font-size="150%" font-weight="bold">
-        <fo:block>Решение собственника помещения по вопросам, поставленным на голосование, на общем собрании собственников помещений в многоквартирном доме, расположенном по адресу:</fo:block>
-        <fo:block space-before="10pt">143442, Московская область, Красногорский район, поселок Отрадное, улица Лесная, дом 17 (МКД) проводимого в форме очно-заочного голосования в период с 15.04.2018 по ___.___.2018</fo:block>
-        <fo:block space-before="10pt" text-align="right">№ кв./№ мм.________________________</fo:block>
-      </fo:block-container>
-
-      <fo:block-container space-before="10pt">
-        <fo:block font-weight="bold">Собственник: </fo:block>
-        <fo:block space-before="15pt">Представитель собственника по дов-ти</fo:block>
-      </fo:block-container>
-
-      <fo:table text-align="center" space-before="10pt" table-layout="fixed" width="100%">
-        <fo:table-column column-width="30%"/>
-        <fo:table-column column-width="15%"/>
-        <fo:table-column column-width="15%"/>
-        <fo:table-column column-width="15%"/>
-        <fo:table-column column-width="20%"/>
-
-        <fo:table-body width="100%" table-layout="fixed" font-weight="bold">
-          <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
-            <fo:table-cell padding="2pt" border="none">
-              <fo:block></fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="none">
-              <fo:block>Фамилия</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="none">
-              <fo:block>Имя</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="none">
-              <fo:block>Отчество</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="none" font-weight="normal">
-              <fo:block>Номер, дата выдачи доверенности</fo:block>
-            </fo:table-cell>
-          </fo:table-row>
-        </fo:table-body>
-      </fo:table>
-
-      <fo:block space-before="10pt">1. Сведения о лице, участвующем в голосовании:</fo:block>
-      <fo:table text-align="center" table-layout="fixed" width="100%" font-weight="bold">
-        <fo:table-column column-width="15%"/>
-        <fo:table-column column-width="15%"/>
-        <fo:table-column column-width="10%"/>
-        <fo:table-column column-width="10%"/>
-        <fo:table-column column-width="35%"/>
-        <fo:table-column column-width="15%"/>
-
-        <fo:table-body width="100%" table-layout="fixed">
-          <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
-            <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2">
-              <fo:block>Документ, удостоверяющий личность:</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank" height="30pt">
-              <fo:block></fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block></fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block></fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block></fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block></fo:block>
-            </fo:table-cell>
-          </fo:table-row>
-          <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block>Вид документа</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block>Серия</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block>Номер</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block>Кем выдан</fo:block>
-            </fo:table-cell>
-            <fo:table-cell padding="2pt" border="thin solid blank">
-              <fo:block>Дата выдачи</fo:block>
-            </fo:table-cell>
-          </fo:table-row>
-        </fo:table-body>
-      </fo:table>
-      <fo:block>Телефон: _________________________________________________________________</fo:block>
-      <fo:block>E-mail: __________________________________________________________________</fo:block>
-
-    </fo:flow>
-  </fo:page-sequence>
+  % foreach (@$records) {
+    %= include 'main/page1', format => 'fo', 'record' => $_;
+    %# %= include 'main/page2', format => 'fo';
+    %# %= include 'main/page3', format => 'fo';
+    %# %= include 'main/page4', format => 'fo';
+  % }
 
 </fo:root>

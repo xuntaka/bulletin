@@ -8,6 +8,14 @@
 
 			<!-- automatically detect operating system installed fonts -->
 			<auto-detect/>
+
+
+			<font kerning="yes" embed-url="<%= $approot %>/fonts/PFDinTextCompPro-Regular.ttf" embedding-mode="subset">
+				<font-triplet name="PFDinTextCompPro" style="normal" weight="normal"/>
+			</font>
+			<font kerning="yes" embed-url="<%= $approot %>/fonts/PFDinTextCompPro-Regular.ttf">
+				<font-triplet name="PFDinTextCompPro" style="normal" weight="bold"/>
+			</font>
 		</fonts>
 	</renderer>
 </renderers>
