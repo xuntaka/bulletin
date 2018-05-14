@@ -1,0 +1,38 @@
+{
+  "name": "bulletin",
+  "version": "0.0.1",
+  "description": "Auto bulletin system",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production --output ./public/s/js/app.js",
+    "dev": "webpack --mode development --output ./public/s/js/app.js",
+    "watch": "webpack-dev-server --mode development --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuntaka/bulletin.git"
+  },
+  "author": "Egor Baibara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuntaka/bulletin/issues"
+  },
+  "homepage": "https://github.com/xuntaka/bulletin#readme"
+}
