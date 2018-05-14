@@ -241,7 +241,7 @@
             <fo:block margin-left="7pt" padding-top="2pt">Ф.И.О.</fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" padding="2pt 2pt 2pt 5pt" margin-left="3pt"><%= $record->{'name'} %></fo:block>
+            <fo:block border="thin solid blank" padding="2pt 2pt 2pt 5pt" margin-left="3pt" color="white">#<%#= $record->{'name'} %></fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none" text-align="right">
             <fo:block margin-left="7pt" padding-top="2pt">Стр. 1 из 4</fo:block>
