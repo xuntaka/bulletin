@@ -21,8 +21,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production --output ./public/s/js/app.js",
-    "dev": "webpack --mode development --output ./public/s/js/app.js",
+    "build": "webpack --mode production --output ./public/s/jsx/app.js",
+    "dev": "webpack --mode development --output ./public/s/jsx/app.js",
     "watch": "webpack-dev-server --mode development --open"
   },
   "repository": {
