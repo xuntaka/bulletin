@@ -1,11 +1,18 @@
 const path = require('path');
 
 module.exports = {
-  entry: path.join(__dirname, "src/app.jsx"),
+  entry: path.join(__dirname, "src/index.jsx"),
+
   output: {
     path: path.resolve(__dirname, "public/s/jsx"),
     filename: "app.js"
   },
+
+  resolve: {
+    modules: ['./src/', 'node_modules'],
+    extensions: ['.js', '.json', '.jsx', '.styl', '.svg', '.css'],
+  },
+
   module: {
     rules: [
       {
@@ -29,12 +36,6 @@ module.exports = {
               sourceMap: true,
               modules: true,
               importLoaders: 1
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true
             }
           },
           {
