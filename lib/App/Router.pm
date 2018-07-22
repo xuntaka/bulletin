@@ -8,8 +8,8 @@ sub register {
 	my $r = $app->routes;
 		 $r->namespaces(['App::Controller']);
 
-  $r->route('/')->to('main#main')->name('main');
-	$r->route('/dl')->to('pdf#pdf')->name('pdf');
+	$r->route('/')->to('main#main')->name('main');
+	$r->route('/pdf')->to('pdf#pdf')->name('pdf');
 }
 
 1;

@@ -8,10 +8,10 @@
   </fo:layout-master-set>
 
   % foreach (@$records) {
-    %= include 'main/page1', format => 'fo', 'record' => $_;
-    %# %= include 'main/page2', format => 'fo';
-    %# %= include 'main/page3', format => 'fo';
-    %# %= include 'main/page4', format => 'fo';
+    %= include 'pdf/page1', format => 'fo', 'record' => $_;
+    %# %= include 'pdf/page2', format => 'fo';
+    %# %= include 'pdf/page3', format => 'fo';
+    %# %= include 'pdf/page4', format => 'fo';
   % }
 
 </fo:root>

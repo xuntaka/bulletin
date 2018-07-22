@@ -1,0 +1,23 @@
+% my @T = localtime;
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" class="layout-main no-js" lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="MVL Bulletin">
+    <meta name="viewport" content="width=1260">
+    <meta name="apple-mobile-web-app-title" content="MVL Bulletin">
+    <meta name="theme-color" content="#525662">
+    <title>MVL Bulletin</title>
+    <meta name="description" content="MVL Bulletin">
+    <meta name="keywords" itemprop="keywords" content="MVL Bulletin" />
+
+    <link rel="preload" href="/s/jsx/app.js<%= '?'.config->{'release_version'} %>" as="script">
+  </head>
+
+  <body>
+    <div id="app"></div>
+  </body>
+
+  <script src="/s/jsx/app.js<%= '?'.config->{'release_version'} %>">" async></script>
+</html>

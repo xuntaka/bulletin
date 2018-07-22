@@ -29,8 +29,8 @@ sub register {
 				$app->config->{path}{fop} || 'fop',
 				'-c' => $app->config->{path}{conf}. '/fop.xml',
 				'-fo' => '-',
-				'-pdf' => $tmp->filename,
-				'-noedit');
+				'-pdf' => $tmp->filename
+			);
 			print $chld_in Encode::encode('utf-8', $$output);
 			close $chld_in;
 

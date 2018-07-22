@@ -27,15 +27,15 @@
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
             <fo:block margin-left="7pt">Фамилия</fo:block>
-            <fo:block border="thin solid blank" height="15pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $sname || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" height="15pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $sname || '#' %></fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
             <fo:block margin-left="7pt">Имя</fo:block>
-            <fo:block border="thin solid blank" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $name %>><%= $name || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $name %>><%= $name || '#' %></fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
             <fo:block margin-left="7pt">Отчество</fo:block>
-            <fo:block border="thin solid blank" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $sec_name %>><%= $sec_name || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $sec_name %>><%= $sec_name || '#' %></fo:block>
           </fo:table-cell>
         </fo:table-row>
       </fo:table-body>
@@ -170,16 +170,16 @@
           % $area += $r->{'area'} || 0;
         <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" height="15pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'type'} %>><%= $r->{'type'} || '#' %> №<%= $r->{'address'} %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" height="15pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'type'} %>><%= $r->{'type'} || '#' %> №<%= $r->{'address'} %></fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" height="15pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'doc_type'} %>><%= $r->{'doc_type'} || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" height="15pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'doc_type'} %>><%= $r->{'doc_type'} || '#' %></fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'doc_num'} %>><%= $r->{'doc_num'} || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'doc_num'} %>><%= $r->{'doc_num'} || '#' %></fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'area'} %>><%= $r->{'area'} || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" padding="2pt" margin-left="3pt" <%== 'color="white"' unless $r->{'area'} %>><%= $r->{'area'} || '#' %></fo:block>
           </fo:table-cell>
         </fo:table-row>
         % }
@@ -201,14 +201,14 @@
             <fo:block margin-left="7pt" padding-top="5pt">Общая площадь собственности, м²</fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" padding="2pt" margin-left="3pt"><%= $area %></fo:block>
+            <fo:block border="thin solid blank" font-size="10pt" padding="2pt" margin-left="3pt"><%= $area %></fo:block>
           </fo:table-cell>
         </fo:table-row>
       </fo:table-body>
     </fo:table>
 
     <fo:block-container space-before="30pt" font-size="100%" line-height="100%">
-      <fo:block space-before="10pt">В соответствии со ст. 9 Федерального закона от 27.07.2006 г. № 152-ФЗ «О защите персональных данных» даю согласие на обработку своих персональных данных инициатору и счетной комиссии общего собрания собственников МКД по адресу Московская область, городской округ Красногорск, поселок Отрадное, улица Лесная, дом 16. Данные, на обработку которых дается согласие: фамилия, имя, отчество; данные документа, удостоверяющего личность; сведения о документе, подтверждающем право собственности; номер телефона; e-mail.</fo:block>
+      <fo:block space-before="10pt">В соответствии со ст. 9 Федерального закона от 27.07.2006 г. № 152-ФЗ «О защите персональных данных» даю согласие на обработку своих персональных данных инициатору и счетной комиссии общего собрания собственников МКД по адресу Московская область, городской округ Красногорск, поселок Отрадное, улица Лесная, дом <%= $house %>. Данные, на обработку которых дается согласие: фамилия, имя, отчество; данные документа, удостоверяющего личность; сведения о документе, подтверждающем право собственности; номер телефона; e-mail.</fo:block>
       <fo:block space-before="10pt">Даю согласие на передачу своих персональных данных в управляющую организацию ООО «В лесу» и уполномоченные органы исполнительной власти субъектов Российской Федерации, осуществляющие государственный жилищный надзор.</fo:block>
       <fo:block space-before="10pt">Разрешаю производить с моими персональными данными действия (операции), определенные статьей 3 Федерального закона от 27.07.2006 №152-ФЗ, а именно: сбор, систематизацию, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, уничтожение персональных данных.</fo:block>
       <fo:block>Обработка персональных данных может осуществляться как с использованием средств автоматизации, так и без их использования (на бумажных носителях).</fo:block>

@@ -1,4 +1,5 @@
 {
+  comments: false,
   compact: true,
   presets: [
     'env',
@@ -12,7 +13,6 @@
     'transform-object-assign',
     'transform-decorators-legacy',
     'transform-object-rest-spread',
-    'transform-runtime',
-    'remove-comments'
+    'transform-runtime'
   ]
 }
