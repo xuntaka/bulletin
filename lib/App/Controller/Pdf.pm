@@ -31,19 +31,30 @@ sub parse_klenovaya {
 #   "#ИМЯ?"
 # ];
 
+		my $T = {
+			'Квартира' => 'flat',
+			'мм'       => 'auto',
+		};
+
 		my $res = {
-			'type'     => lc $R->[2],
-			'area'     => 0 + $R->[6] =~ s/,/./r, #/
+			'type'     => $T->{$R->[2]} || 'unknown',
+			'area'     => 0 + ($R->[6] =~ s/,/./r) * ($R->[7] || 1) / ($R->[8] || 1), #/
 			'doc_type' => ($R->[11] =~ /^№/ ? '№ Свидетельства о госрегистрации' : 'ДДУ + акт ПП'),
 			'doc_num'  => $R->[11] =~ s/^№ //r, #/
 			'doc_date' => $R->[12],
 			'address'  => $R->[0] =~ s/^мм //r, #/
+			'name'     => $R->[3],
+			'phone'    => $R->[4],
+			'email'    => $R->[5],
+			'proportion' => $R->[8] == 1 ? 1 : $R->[7] . '/' . $R->[8],
 		};
 
 		return $res;
 	}
 
 	my $record_raw = {};
+	my @flats;
+	my @autos;
 
 	foreach (@$records) {
 		next if /^\t/;
@@ -54,25 +65,51 @@ sub parse_klenovaya {
 		next unless $R->[3];
 		next if $R->[3] =~ /^"/;
 
-		push @{$record_raw->{$R->[3]}}, RK($R);
+		my $rk = RK($R);
+
+		if ($rk->{'type'} eq 'flat') {
+			push @flats, $rk;
+		}
+		elsif ($rk->{'type'} eq 'auto') {
+			push @autos, $rk;
+		}
+		# push @{$record_raw->{$rk->{'type'}}}, $rk;
 	}
 
-	my $records = [
-		sort {$a->{'data'}->[0]->{'address'} <=> $b->{'data'}->[0]->{'address'}}
-		grep {!%$flats ? 1 : $flats->{$_->{'data'}->[0]->{'address'}}}
-		map {
-			{
-				'name' => $_,
-				'data' => [
-					sort {$a->{'type'} cmp $b->{'type'}}
-					@{$record_raw->{$_}}
-				]
-			}
+	my $data = {};
+
+	foreach (@flats) {
+		push @{$data->{$_->{'address'}}}, $_;
+	}
+
+	foreach my $k (keys %$data) {
+		# warn $k;
+		my @a;
+		foreach my $fl (@{$data->{$k}}) {
+			my $name = $fl->{'name'};
+
+			@a = 
+				grep {
+					$_->{'name'} eq $name
+				} @autos;
 		}
-		keys %$record_raw
+
+		push @{$data->{$k}}, @a;
+	}
+
+	my $res = [
+		map {
+			sort {$a->{'type'} cmp $b->{'type'}}
+			@{$data->{$_}}
+		}
+		sort
+		grep {!%$flats ? 1 : $flats->{$_}}
+		keys %$data
 	];
 
-	return $records;
+	# die Dumper $res;
+
+	return $res;
 }
 
 sub parse_lesnaya {
@@ -162,6 +199,8 @@ sub pdf {
 	else {
 		$template = 'pdf/klenovaya/pdf';
 		$records = parse_klenovaya($file, $flats);
+
+		warn Dumper($records);
 	}
 
 	return $self->render(

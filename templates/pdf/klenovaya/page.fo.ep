@@ -121,13 +121,13 @@
             <fo:block margin-left="7pt" padding-top="2pt">Телефон:</fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border-bottom="thin solid blank" margin-left="3pt" color="white">#</fo:block>
+            <fo:block border-bottom="thin solid blank" margin-left="3pt" <%== 'color="white"' unless $record->{'phone'} %>><%= $record->{'phone'} ? '+7 ' . $record->{'phone'} : '#' %></fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
             <fo:block margin-left="7pt" padding-top="2pt">E-mail:</fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border-bottom="thin solid blank" margin-left="3pt" color="white">#</fo:block>
+            <fo:block border-bottom="thin solid blank" margin-left="3pt" <%== 'color="white"' unless $record->{'email'} %>><%= $record->{'email'} || '#' %></fo:block>
           </fo:table-cell>
         </fo:table-row>
       </fo:table-body>
@@ -138,15 +138,12 @@
       <fo:block>2. Сведения о документе, подтверждающем право собственности лица, участвующего в голосовании, на помещение в многоквартирном доме.</fo:block>
     </fo:block-container>
 
-    % my $area = 0;
-
     <fo:table text-align="left" space-before="5pt" table-layout="fixed" width="100%">
       <fo:table-column column-width="28%"/>
       <fo:table-column column-width="14%"/>
       <fo:table-column column-width="14%"/>
       <fo:table-column column-width="44%"/>
 
-      % my ($sname, $name, $sec_name) = split ' ', $record->{'name'};
       <fo:table-body width="100%" table-layout="fixed">
         <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
           <fo:table-cell padding="2pt" border="none">
@@ -157,15 +154,15 @@
             </fo:block-container>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $sname || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $record->{'doc_num'} || '#' %></fo:block>
             <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-weight="bold" text-align="center">Номер</fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $name %>><%= $name || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt"><%= $record->{'doc_date'} || '#' %></fo:block>
             <fo:block border="thin solid blank" margin-top="3pt" padding-left="2pt" margin-left="3pt" font-weight="bold" text-align="center">Дата выдачи</fo:block>
           </fo:table-cell>
           <fo:table-cell padding="2pt" border="none">
-            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" color="white">#</fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" color="white"><%= $record->{'area'} %></fo:block>
             <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-size="90%" font-weight="bold">Общая площадь квартиры, помещения, мм (без учета балконов, лоджий)</fo:block>
           </fo:table-cell>
         </fo:table-row>
@@ -205,7 +202,7 @@
 
 
     <fo:block-container space-before="1pt">
-      <fo:block>Доля в праве общей собственности на указанное помещение __________ Количество голосов собственника (<fo:inline font-weight="bold">кв.м.</fo:inline>) _________________</fo:block>
+      <fo:block>Доля в праве общей собственности на указанное помещение <fo:inline text-decoration="underline"><%= $record->{'proportion'} || '#' %></fo:inline> Количество голосов собственника (<fo:inline font-weight="bold">кв.м.</fo:inline>) <fo:inline text-decoration="underline"><%= $record->{'area'} || '#' %></fo:inline></fo:block>
     </fo:block-container>
 
     <fo:block-container space-before="3pt">
