@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import {hot} from 'react-hot-loader';
 import classnames from 'classnames';
 
 import style from 'style';
@@ -16,6 +17,7 @@ function range(start, end) {
 
 const houses = [
   {
+    disabled: true,
     number: 16,
     title: 'Лесная 16',
     sections: [
@@ -35,6 +37,7 @@ const houses = [
     ],
   },
   {
+    disabled: true,
     number: 17,
     title: 'Лесная 17',
     sections: [
@@ -54,6 +57,7 @@ const houses = [
     ],
   },
   {
+    disabled: true,
     number: 18,
     title: 'Лесная 18',
     sections: [
@@ -63,9 +67,26 @@ const houses = [
       range(106, 157), //  4 14x4
     ],
   },
+  {
+    number: 3,
+    title: 'Кленовая 3',
+    sections: [
+      range(  1,  24),
+      range( 25,  42),
+      range( 43,  72),
+      range( 73, 102),
+      range(103, 132),
+      range(133, 155),
+      range(156, 187),
+      range(188, 211),
+      range(212, 229),
+      range(230, 247),
+      range(248, 265),
+    ],
+  },
 ];
 
-export default class App extends Component {
+export default hot(module)(class App extends Component {
   state = {
     house: null,
     section: null,
@@ -179,4 +200,4 @@ export default class App extends Component {
 
     // 
   }
-};
+});

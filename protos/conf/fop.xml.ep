@@ -16,6 +16,12 @@
 			<font kerning="yes" embed-url="<%= $approot %>/fonts/PFDinTextCompPro-Regular.ttf">
 				<font-triplet name="PFDinTextCompPro" style="normal" weight="bold"/>
 			</font>
+			<font kerning="yes" embed-url="<%= $approot %>/fonts/times.ttf">
+				<font-triplet name="Times" style="normal" weight="normal"/>
+			</font>
+			<font kerning="yes" embed-url="<%= $approot %>/fonts/timesbd.ttf">
+				<font-triplet name="Times" style="normal" weight="bold"/>
+			</font>
 		</fonts>
 	</renderer>
 </renderers>

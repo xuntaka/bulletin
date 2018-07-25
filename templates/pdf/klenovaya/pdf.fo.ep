@@ -1,0 +1,14 @@
+% layout undef;
+<?xml version="1.0" encoding="UTF-8"?>
+<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" font-family="Times" country="ru" language="ru" <%== config->{pdf}{default_styles} %> font-size="10pt">
+  <fo:layout-master-set>
+    <fo:simple-page-master master-name="A4" page-width="210mm" page-height="297mm" margin-top="15mm" margin-bottom="15mm" margin-left="10mm" margin-right="10mm">
+      <fo:region-body/>
+    </fo:simple-page-master>
+  </fo:layout-master-set>
+
+  % foreach (@$records) {
+    %= include 'pdf/klenovaya/page', format => 'fo', 'record' => $_;
+  % }
+
+</fo:root>

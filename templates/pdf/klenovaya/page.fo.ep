@@ -1,0 +1,357 @@
+% warn dumper($record);
+
+<fo:page-sequence master-reference="A4" font-size="9pt">
+  <fo:flow flow-name="xsl-region-body">
+    <fo:block-container text-align="center" font-weight="bold" margin-left="3mm">
+      <fo:block font-weight="normal" text-align="right" line-height="0pt">1</fo:block>
+      <fo:block space-before="15pt" font-size="100%" line-height="12pt">Решение собственника помещения по вопросам, поставленным на голосование, на общем собрании собственников</fo:block>
+      <fo:block font-size="100%" line-height="12pt">помещений в многоквартирном доме, расположенном по адресу:</fo:block>
+      <fo:block space-before="5pt" font-size="100%" line-height="12pt" text-decoration="underline">143442, Московская обл., городской округ Красногорск, п.Отрадное, ул. Кленовая, д.<%= $house %></fo:block>
+      <fo:block font-size="100%" line-height="12pt">проводимого в форме очно-заочного голосования в период с 24.06.2018 по 11.08.2018</fo:block>
+    </fo:block-container>
+
+    <fo:block-container space-before="10pt" font-size="140%" text-align="right">
+      <fo:block font-weight="bold">№ кв. (пом.)/№ мм.___________</fo:block>
+    </fo:block-container>
+
+    <fo:block-container>
+      <fo:block>1. Сведения о лице, участвующем в голосовании:</fo:block>
+    </fo:block-container>
+
+    <fo:table text-align="left" space-before="5pt" table-layout="fixed" width="100%">
+      <fo:table-column column-width="20%"/>
+      <fo:table-column column-width="15%"/>
+      <fo:table-column column-width="15%"/>
+      <fo:table-column column-width="25%"/>
+      <fo:table-column column-width="25%"/>
+
+      % my ($sname, $name, $sec_name) = split ' ', $record->{'name'};
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" margin-top="5pt" font-weight="bold">Собственник:</fo:block>
+            <fo:block-container border="thin solid blank" font-size="90%">
+              <fo:block>Представитель</fo:block>
+              <fo:block>собственника по дов-ти</fo:block>
+            </fo:block-container>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $sname || '#' %></fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-weight="bold" text-align="center">Фамилия</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $name %>><%= $name || '#' %></fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-weight="bold" text-align="center">Имя</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $sec_name %>><%= $sec_name || '#' %></fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-weight="bold" text-align="center">Отчество</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" color="white">#</fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-size="90%" text-align="center">
+              <fo:block>Номер, дата выдачи</fo:block>
+              <fo:block>доверенности</fo:block>
+            </fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+    <fo:table text-align="left" table-layout="fixed" width="100%" font-size="9pt">
+      <fo:table-column column-width="14%"/>
+      <fo:table-column column-width="14%"/>
+      <fo:table-column column-width="10%"/>
+      <fo:table-column column-width="10%"/>
+      <fo:table-column column-width="32%"/>
+      <fo:table-column column-width="20%"/>
+
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true">
+          <fo:table-cell padding="2pt" border="thin solid blank" number-rows-spanned="2" font-weight="bold">
+            <fo:block>Документ,</fo:block>
+            <fo:block>удостоверяющий</fo:block>
+            <fo:block>личность:</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block padding="15pt 2pt"></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block padding="15pt 2pt"></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block padding="15pt 2pt"></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block padding="15pt 2pt"></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block padding="15pt 2pt"></fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+        <fo:table-row hyphenate="true">
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-size="90%" font-weight="bold" text-align="center">Вид документа</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-size="90%" font-weight="bold" text-align="center">Серия</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-size="90%" font-weight="bold" text-align="center">Номер</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-size="90%" font-weight="bold" text-align="center">Кем выдан</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-size="90%" font-weight="bold" text-align="center">Дата выдачи</fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+   <fo:table text-align="left" table-layout="fixed" width="100%">
+      <fo:table-column column-width="10%"/>
+      <fo:table-column column-width="40%"/>
+      <fo:table-column column-width="10%"/>
+      <fo:table-column column-width="40%"/>
+
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block margin-left="7pt" padding-top="2pt">Телефон:</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border-bottom="thin solid blank" margin-left="3pt" color="white">#</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block margin-left="7pt" padding-top="2pt">E-mail:</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border-bottom="thin solid blank" margin-left="3pt" color="white">#</fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+
+    <fo:block-container space-before="10pt" font-size="100%">
+      <fo:block>2. Сведения о документе, подтверждающем право собственности лица, участвующего в голосовании, на помещение в многоквартирном доме.</fo:block>
+    </fo:block-container>
+
+    % my $area = 0;
+
+    <fo:table text-align="left" space-before="5pt" table-layout="fixed" width="100%">
+      <fo:table-column column-width="28%"/>
+      <fo:table-column column-width="14%"/>
+      <fo:table-column column-width="14%"/>
+      <fo:table-column column-width="44%"/>
+
+      % my ($sname, $name, $sec_name) = split ' ', $record->{'name'};
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block-container border="thin solid blank" font-weight="bold" padding-left="5pt">
+              <fo:block>Свидетельство о</fo:block>
+              <fo:block>государственной регистрации</fo:block>
+              <fo:block>права собственности:</fo:block>
+            </fo:block-container>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $sname || '#' %></fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-weight="bold" text-align="center">Номер</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" <%== 'color="white"' unless $name %>><%= $name || '#' %></fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="2pt" margin-left="3pt" font-weight="bold" text-align="center">Дата выдачи</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" color="white">#</fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-size="90%" font-weight="bold">Общая площадь квартиры, помещения, мм (без учета балконов, лоджий)</fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+    <fo:table text-align="left" space-before="2pt" table-layout="fixed" width="100%">
+      <fo:table-column column-width="28%"/>
+      <fo:table-column column-width="14%"/>
+      <fo:table-column column-width="14%"/>
+      <fo:table-column column-width="44%"/>
+
+      % my ($sname, $name, $sec_name) = split ' ', $record->{'name'};
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" font-weight="bold" padding-left="5pt">Договор долевого участия</fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" font-weight="bold" margin-top="3pt" padding-left="5pt">Акт приема-передачи квартиры</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding-left="5pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $sname || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" margin-top="3pt" padding-left="5pt" margin-left="3pt" <%== 'color="white"' unless $sname %>><%= $sname || '#' %></fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-weight="bold" text-align="center">Номер</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding-left="5pt" margin-left="3pt" <%== 'color="white"' unless $name %>><%= $name || '#' %></fo:block>
+            <fo:block border="thin solid blank" font-size="9pt" margin-top="3pt" padding-left="5pt" margin-left="3pt" <%== 'color="white"' unless $name %>><%= $name || '#' %></fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-weight="bold" text-align="center">Дата</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="none">
+            <fo:block border="thin solid blank" font-size="9pt" padding="10pt 0 10pt 2pt" margin-left="3pt" color="white">#</fo:block>
+            <fo:block border="thin solid blank" margin-top="3pt" padding-left="5pt" margin-left="3pt" font-size="90%" font-weight="bold">Общая площадь квартиры, помещения, мм (без учета балконов, лоджий)</fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+
+    <fo:block-container space-before="1pt">
+      <fo:block>Доля в праве общей собственности на указанное помещение __________ Количество голосов собственника (<fo:inline font-weight="bold">кв.м.</fo:inline>) _________________</fo:block>
+    </fo:block-container>
+
+    <fo:block-container space-before="3pt">
+      <fo:block>3. Решения собственника по каждому вопросу повестки дня:</fo:block>
+      <fo:block>В выбранной графе «ЗА», «ПРОТИВ», «ВОЗДЕРЖАЛСЯ» необходимо проставить один любой знак «V», «О», «Х».</fo:block>
+      <fo:block font-weight="bold">При голосовании засчитываются голоса по вопросам, по которым участвующим в голосовании собственником оставлен только один из возможных вариантов голосования (выбрана только одна графа из трех предложенных)</fo:block>
+    </fo:block-container>
+
+
+    <fo:table text-align="left" space-before="10pt" table-layout="fixed" width="100%" font-size="9pt" line-height="9pt">
+      <fo:table-column column-width="5%"/>
+      <fo:table-column column-width="75%"/>
+      <fo:table-column column-width="5%"/>
+      <fo:table-column column-width="5%"/>
+      <fo:table-column column-width="5%"/>
+
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-weight="bold">№</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt 5pt" border="thin solid blank">
+            <fo:block font-weight="bold" text-align="center">Пункты повестки дня</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-weight="bold" text-align="center">За</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-weight="bold" text-align="center">Про-</fo:block>
+            <fo:block font-weight="bold" text-align="center">тив</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-weight="bold" text-align="center">Воз-</fo:block>
+            <fo:block font-weight="bold" text-align="center">дер-</fo:block>
+            <fo:block font-weight="bold" text-align="center">жался</fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block font-weight="bold">1.</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt 5pt" border="thin solid blank">
+            <fo:block font-weight="bold" font-size="10pt">Выбор председателя и секретаря общего собрания.</fo:block>
+            <fo:block>Выбрать председателем общего собрания:</fo:block>
+            <fo:block>Хараджиева Евгения Владимировича (кв. 157),</fo:block>
+            <fo:block>секретарем общего собрания:</fo:block>
+            <fo:block>Пляцидевскую Татьяну Владимировну (кв. 76).</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="thin solid blank" line-height="100%">
+            <fo:block font-weight="bold">2.</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt 5pt" border="thin solid blank">
+            <fo:block font-weight="bold" font-size="10pt">Утверждение счетной комиссии по подведению итогов голосования.</fo:block>
+            <fo:block>Утвердить счетную комиссию по подведению итогов голосования в составе следующих лиц:</fo:block>
+            <fo:block>1. Домбровская Юлия Владимировна (кв.160);</fo:block>
+            <fo:block>2. Дырма Михаил Алексеевич (кв.209);</fo:block>
+            <fo:block>3. Дьяченко Дмитрий Викторович (кв.146);</fo:block>
+            <fo:block>4. Котова Екатерина Николаевна (кв.3);</fo:block>
+            <fo:block>5. Пляцидевская Татьяна Владимировна (кв. 76);</fo:block>
+            <fo:block>6. Хараджиев Евгений Владимирович (кв. 157).</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="thin solid blank" line-height="100%">
+            <fo:block font-weight="bold">3.</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt 5pt" border="thin solid blank">
+            <fo:block font-weight="bold" font-size="10pt">Выбор способа уведомления собственников помещений в МКД о проведении общих собраний собственников помещений и итогах голосования.</fo:block>
+            <fo:block>Выбрать способ уведомления собственников помещений в МКД о проведении общих собраний собственников помещений и итогах голосования путем размещения сообщений в местах общего пользования (информационные доски, лифты).</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+        <fo:table-row hyphenate="true" hyphenation-push-character-count="4" hyphenation-remain-character-count="4">
+          <fo:table-cell padding="2pt" border="thin solid blank" line-height="100%">
+            <fo:block font-weight="bold">4.</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt 5pt" border="thin solid blank">
+            <fo:block font-weight="bold" font-size="10pt">Выбор способа управления МКД – управление управляющей организацией.</fo:block>
+            <fo:block>Выбрать способ управления МКД – управление управляющей организацией.</fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+          <fo:table-cell padding="2pt" border="thin solid blank">
+            <fo:block></fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+    <fo:table text-align="left" space-before="15pt" table-layout="fixed" width="100%" font-size="9pt">
+      <fo:table-column column-width="25%"/>
+      <fo:table-column column-width="25%"/>
+      <fo:table-column column-width="50%"/>
+
+      <fo:table-body width="100%" table-layout="fixed">
+        <fo:table-row hyphenate="true">
+          <fo:table-cell border="none" number-columns-spanned="3" font-weight="bold">
+            <fo:block padding-left="30pt">_______________________________/____________________________/____________________________________________________/</fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+        <fo:table-row hyphenate="true" text-align="center">
+          <fo:table-cell border="none">
+            <fo:block font-weight="bold">Дата голосования</fo:block>
+          </fo:table-cell>
+          <fo:table-cell border="none">
+            <fo:block font-weight="bold">Подпись</fo:block>
+          </fo:table-cell>
+          <fo:table-cell border="none">
+            <fo:block font-weight="bold">Ф.И.О.</fo:block>
+          </fo:table-cell>
+        </fo:table-row>
+      </fo:table-body>
+    </fo:table>
+
+  </fo:flow>
+</fo:page-sequence>

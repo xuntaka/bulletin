@@ -27,9 +27,10 @@ export default class House extends Component {
       <div
         className={classnames(
           style.house__wrap,
-          {[style.house__wrap_current]: current}
+          {[style.house__wrap_current]: current},
+          {[style.house__wrap_disabled]: house.disabled}
         )}
-        onClick={this.selectHouse}
+        onClick={house.disabled ? null : this.selectHouse}
       >
         <p className={style.house__title}>{house.title}</p>
       </div>
